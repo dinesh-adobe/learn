@@ -323,3 +323,24 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* ---------------Custome CSS------------------- */
+
+#this-is-h1 {
+  color: red;
+}
+#this-is-h2 {
+  color: green;
+}
+#this-is-h3 {
+  color: blue;
+}
+#this-is-h4 {
+  color: orange;
+}
+#this-is-h5 {
+  color: purple;
+}
+#this-is-h6 {
+  color: brown;
+}
