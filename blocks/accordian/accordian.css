@@ -1,0 +1,71 @@
+/* Accordion container */
+.accordion-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Each accordion item */
+.accordion.block > div {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Accordion header */
+.accordion.block > div > div:first-child {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 18px 20px;
+  cursor: pointer;
+  position: relative;
+  background: #fafafa;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.accordion.block > div > div:first-child:hover {
+  background: #f1f1f1;
+}
+
+/* Arrow icon */
+.accordion.block > div > div:first-child::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+/* When active */
+.accordion-item.active > div:first-child::after {
+  content: "−";
+}
+
+/* Accordion content */
+.accordion.block > div > div:last-child {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0 20px;
+}
+
+/* Active content */
+.accordion-item.active > div:last-child {
+  padding: 16px 20px 20px;
+}
+
+/* Paragraph style */
+.accordion p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Links */
+.accordion a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.accordion a:hover {
+  text-decoration: underline;
+}
