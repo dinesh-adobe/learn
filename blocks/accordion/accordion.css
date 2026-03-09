@@ -1,0 +1,75 @@
+/* Container */
+.accordion-wrapper {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+/* Each accordion item */
+.accordion details {
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  background: #fff;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.accordion details[open] {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.accordion summary {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 18px 50px 18px 20px;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+}
+
+/* Remove default arrow */
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom toggle icon */
+.accordion summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+/* When open */
+.accordion details[open] summary::after {
+  content: "−";
+}
+
+/* Body */
+.accordion .accordion-item-body {
+  padding: 0 20px 20px 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Smooth opening animation */
+.accordion details[open] .accordion-item-body {
+  animation: accordionFade 0.3s ease;
+}
+
+@keyframes accordionFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

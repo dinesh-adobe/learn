@@ -1,0 +1,37 @@
+.form-wrapper .form {
+  max-width: 500px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+}
+ 
+.form-group {
+  margin-bottom: 15px;
+}
+ 
+.form-wrapper .form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+ 
+.form-wrapper .form input,
+.form-wrapper .form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+ 
+.form-wrapper .form button {
+  padding: 10px 20px;
+  background-color: #0072ce;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ 
+.form-wrapper .form button:hover {
+  background-color: #005fa3;
+}
+ 

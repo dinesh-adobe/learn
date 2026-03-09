@@ -1,0 +1,108 @@
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+/* slides container */
+.carousel .carousel-slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* hide scrollbar */
+.carousel .carousel-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* each slide */
+.carousel .carousel-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  min-height: 400px;
+}
+
+/* image */
+.carousel-slide-image picture,
+.carousel-slide-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide-image img {
+  object-fit: cover;
+}
+
+/* slide content */
+.carousel-slide-content {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 16px;
+  max-width: 400px;
+}
+
+/* navigation buttons */
+.carousel-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-navigation-buttons button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.carousel-navigation-buttons button:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* arrow icons */
+.carousel-navigation-buttons button::after {
+  content: '';
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+  transform: rotate(135deg);
+}
+
+.carousel-navigation-buttons .slide-next::after {
+  transform: rotate(-45deg);
+}
+
+/* indicators */
+.carousel-slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+}
+
+.carousel-slide-indicators button {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: #aaa;
+}
+
+.carousel-slide-indicators button.active {
+  background: #333;
+}
