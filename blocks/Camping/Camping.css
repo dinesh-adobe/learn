@@ -1,4 +1,4 @@
-/* block container */
+/* main layout */
 
 .campaign > div {
   display: grid;
@@ -19,7 +19,7 @@
 
 /* right panel */
 
-.campaign-panel {
+.campaign-content {
   background: #e6e6e6;
   padding: 60px;
   display: flex;
@@ -27,7 +27,7 @@
   justify-content: center;
 }
 
-/* featured label */
+/* label */
 
 .campaign-label {
   font-size: 14px;
@@ -37,7 +37,7 @@
 
 /* title */
 
-.campaign-panel h2 {
+.campaign-content h2 {
   font-family: Georgia, serif;
   font-size: 40px;
   font-weight: 500;
@@ -47,7 +47,7 @@
 
 /* description */
 
-.campaign-panel p {
+.campaign-content p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 30px;

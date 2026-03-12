@@ -9,15 +9,11 @@ export default function decorate(block) {
   const link = cols[3];
 
   const panel = document.createElement('div');
-  panel.className = 'campaign-panel';
-
-  /* Featured label */
+  panel.className = 'campaign-content';
 
   const label = document.createElement('p');
   label.className = 'campaign-label';
   label.textContent = 'Featured Article';
-
-  /* Button */
 
   const button = document.createElement('a');
   const linkElement = link.querySelector('a');
@@ -27,8 +23,6 @@ export default function decorate(block) {
   button.className = 'campaign-button';
 
   panel.append(label, title, description, button);
-
-  /* rebuild block */
 
   row.innerHTML = '';
   row.append(image, panel);
