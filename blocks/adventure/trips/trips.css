@@ -1,0 +1,77 @@
+/* ===== TRIPS BLOCK ===== */
+
+.trips {
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+/* grid */
+
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* card */
+
+.trips-card picture,
+.trips-card img {
+  width: 100%;
+  display: block;
+}
+
+.trips-card img {
+  object-fit: cover;
+}
+
+/* title */
+
+.trips-card h3 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 15px;
+  font-weight: 700;
+}
+
+/* description */
+
+.trips-card p {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* button */
+
+.trips-all {
+  margin-top: 40px;
+}
+
+.trips-all a {
+  display: inline-block;
+  background: #ffd400;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+
+  .trips-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+}
+
+@media (max-width: 500px) {
+
+  .trips-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

@@ -1,30 +1,45 @@
-/* =================================
-CAMPING FEATURED ARTICLE BLOCK
-================================ */
+/* ===== FEATURED ARTICLE BLOCK ===== */
 
-.camping > div {
+.page1 > div {
   display: grid;
   grid-template-columns: 65% 35%;
   max-width: 1200px;
   margin: 80px auto;
 }
 
-/* IMAGE */
+/* IMAGE COLUMN */
 
-.camping-image picture,
-.camping-image img {
+.page1 > div > div:first-child {
+  position: relative;
+}
+
+.page1 picture,
+.page1 img {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.camping-image img {
+.page1 img {
   object-fit: cover;
+}
+
+/* IMAGE CAPTION */
+
+.page1 img + em,
+.page1 figcaption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 6px 12px;
+  font-size: 13px;
 }
 
 /* RIGHT CONTENT PANEL */
 
-.camping-content {
+.page1 > div > div:last-child {
   background: #e9e9e9;
   padding: 60px;
   display: flex;
@@ -34,7 +49,7 @@ CAMPING FEATURED ARTICLE BLOCK
 
 /* FEATURED LABEL */
 
-.camping-label {
+.page1-featured-label {
   font-size: 14px;
   color: #333;
   margin-bottom: 20px;
@@ -42,7 +57,7 @@ CAMPING FEATURED ARTICLE BLOCK
 
 /* TITLE */
 
-.camping-content h2 {
+.page1 h2 {
   font-family: Georgia, serif;
   font-size: 42px;
   font-weight: 500;
@@ -52,7 +67,7 @@ CAMPING FEATURED ARTICLE BLOCK
 
 /* DESCRIPTION */
 
-.camping-content p {
+.page1 p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 30px;
@@ -60,26 +75,21 @@ CAMPING FEATURED ARTICLE BLOCK
 
 /* BUTTON */
 
-.camping-content a {
+.page1 .button-wrapper a {
   display: inline-block;
   background: #ffd400;
   padding: 16px 32px;
   font-weight: 700;
   text-decoration: none;
   color: black;
-  width: fit-content;
 }
 
 /* RESPONSIVE */
 
 @media (max-width: 900px) {
 
-  .camping > div {
+  .page1 > div {
     grid-template-columns: 1fr;
-  }
-
-  .camping-content {
-    padding: 40px;
   }
 
 }

@@ -1,0 +1,107 @@
+/* ===== MEMBER BLOCK ===== */
+
+.member {
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+/* header */
+
+.member > div:first-child h2 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+}
+
+.member > div:first-child h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ffd400;
+  margin-top: 10px;
+}
+
+/* intro */
+
+.member > div:first-child p {
+  margin: 20px 0 40px;
+}
+
+/* divider */
+
+.member-divider {
+  height: 1px;
+  background: #ddd;
+  margin-bottom: 60px;
+}
+
+/* cards grid */
+
+.member-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* card */
+
+.member-card {
+  position: relative;
+}
+
+/* yellow corner */
+
+.member-card::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 40px;
+  height: 40px;
+  background: #ffd400;
+  clip-path: polygon(0 0,100% 0,0 100%);
+}
+
+/* lock */
+
+.member-lock {
+  position: absolute;
+  top: -4px;
+  left: 5px;
+  font-size: 18px;
+}
+
+/* title */
+
+.member-card h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+/* description */
+
+.member-card p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* read more */
+
+.member-read {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #ddd;
+  font-size: 12px;
+}
+
+/* image */
+
+.member-card picture,
+.member-card img {
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  opacity: 0.7;
+}

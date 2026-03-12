@@ -1,30 +1,47 @@
 export default function decorate(block) {
 
   const row = block.querySelector(':scope > div');
+
+  if (!row) return;
+
   const cols = [...row.children];
 
-  const image = cols[0];
+  const imageCell = cols[0];
   const title = cols[1];
   const description = cols[2];
   const link = cols[3];
 
-  const panel = document.createElement('div');
-  panel.className = 'campaign-content';
+  /* extract picture */
 
-  const label = document.createElement('p');
-  label.className = 'campaign-label';
+  const picture = imageCell.querySelector('picture');
+
+  /* create columns */
+
+  const imageCol = document.createElement('div');
+  imageCol.className = 'camping-image';
+
+  const contentCol = document.createElement('div');
+  contentCol.className = 'camping-content';
+
+  if (picture) {
+    imageCol.append(picture);
+  }
+
+  /* featured label */
+
+  const label = document.createElement('span');
+  label.className = 'camping-label';
   label.textContent = 'Featured Article';
 
-  const button = document.createElement('a');
-  const linkElement = link.querySelector('a');
+  contentCol.append(label);
 
-  button.href = linkElement?.href || '#';
-  button.textContent = linkElement?.textContent || 'FULL ARTICLE';
-  button.className = 'campaign-button';
+  if (title) contentCol.append(title);
+  if (description) contentCol.append(description);
+  if (link) contentCol.append(link);
 
-  panel.append(label, title, description, button);
+  /* rebuild layout */
 
   row.innerHTML = '';
-  row.append(image, panel);
+  row.append(imageCol, contentCol);
 
 }

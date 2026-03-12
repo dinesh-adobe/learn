@@ -1,0 +1,86 @@
+/* ===== NEXT ADVENTURES HERO ===== */
+
+.adventure {
+  max-width: 1200px;
+  margin: 80px auto;
+  position: relative;
+}
+
+/* image */
+
+.adventure-image picture,
+.adventure-image img {
+  width: 100%;
+  display: block;
+}
+
+.adventure-image img {
+  object-fit: cover;
+}
+
+/* image caption */
+
+.adventure-image {
+  position: relative;
+}
+
+.adventure-image img + em,
+.adventure-image figcaption {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+/* overlay card */
+
+.adventure-content {
+  position: absolute;
+  left: 80px;
+  bottom: -40px;
+  background: #f3f3f3;
+  padding: 40px 50px;
+  max-width: 720px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* title */
+
+.adventure-content h2 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+/* description */
+
+.adventure-content p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* button */
+
+.adventure-content a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ffd400;
+  padding: 14px 28px;
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+
+  .adventure-content {
+    position: static;
+    margin-top: 20px;
+  }
+
+}

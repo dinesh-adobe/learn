@@ -2,30 +2,56 @@ export default function decorate(block) {
 
   const rows = [...block.children];
 
-  /* ========= FEATURED ARTICLE ========= */
+  /* =============================
+  FEATURED ARTICLE
+  ============================= */
 
   const featured = rows[0];
-  const cols = [...featured.children];
 
-  const image = cols[0];
-  const title = cols[1];
-  const description = cols[2];
-  const link = cols[3];
+  featured.classList.add("magazine-featured");
 
-  /* Create right content panel */
 
-  const content = document.createElement("div");
-  content.className = "magazine-featured-content";
+  /* =============================
+  ALL ARTICLES
+  ============================= */
 
-  const label = document.createElement("p");
-  label.className = "magazine-featured-label";
-  label.textContent = "Featured Article";
+  const grid = document.createElement("div");
+  grid.className = "magazine-grid";
 
-  content.append(label, title, description, link);
+  rows.slice(1).forEach((row) => {
 
-  /* rebuild structure */
+    const cols = [...row.children];
 
-  featured.innerHTML = "";
-  featured.append(image, content);
+    const image = cols[0];
+    const title = cols[1];
+    const desc = cols[2];
+
+    const card = document.createElement("div");
+    card.className = "magazine-card";
+
+    const img = image.querySelector("img");
+
+    const cardTitle = document.createElement("div");
+    cardTitle.className = "magazine-card-title";
+    cardTitle.innerHTML = title.innerHTML;
+
+    const cardDesc = document.createElement("div");
+    cardDesc.className = "magazine-card-desc";
+    cardDesc.innerHTML = desc.innerHTML;
+
+    card.append(img, cardTitle, cardDesc);
+
+    grid.append(card);
+
+    row.remove();
+
+  });
+
+  const title = document.createElement("h2");
+  title.textContent = "All Articles";
+  title.className = "magazine-title";
+
+  block.append(title);
+  block.append(grid);
 
 }
