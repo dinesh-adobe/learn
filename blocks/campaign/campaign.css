@@ -1,34 +1,33 @@
-/* =====================================
-CAMPAIGN BLOCK
-===================================== */
+/* block container */
 
 .campaign > div {
   display: grid;
   grid-template-columns: 65% 35%;
-  margin-top: 40px;
+  max-width: 1200px;
+  margin: 80px auto;
 }
 
-/* IMAGE */
+/* image */
 
 .campaign picture,
 .campaign img {
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
+  display: block;
 }
 
-/* RIGHT PANEL */
+/* right panel */
 
-.campaign-content {
-  background: #e9e9e9;
+.campaign-panel {
+  background: #e6e6e6;
   padding: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-/* FEATURE LABEL */
+/* featured label */
 
 .campaign-label {
   font-size: 14px;
@@ -36,45 +35,36 @@ CAMPAIGN BLOCK
   color: #333;
 }
 
-/* TITLE */
+/* title */
 
-.campaign-content h2,
-.campaign-content h3,
-.campaign-content strong {
-  font-size: 40px;
+.campaign-panel h2 {
   font-family: Georgia, serif;
+  font-size: 40px;
   font-weight: 500;
   margin-bottom: 25px;
+  line-height: 1.2;
 }
 
-/* DESCRIPTION */
+/* description */
 
-.campaign-content p {
+.campaign-panel p {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 30px;
-  color: #444;
 }
 
-/* BUTTON */
+/* button */
 
-.campaign-content a {
+.campaign-button {
   background: #ffd400;
-  padding: 16px 30px;
+  padding: 16px 34px;
   text-decoration: none;
   font-weight: 700;
   color: black;
   width: fit-content;
 }
 
-.campaign-content a:hover {
-  background: black;
-  color: white;
-}
-
-/* =====================================
-RESPONSIVE
-===================================== */
+/* responsive */
 
 @media (max-width: 900px) {
 

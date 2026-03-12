@@ -1,18 +1,50 @@
 export default function decorate(block) {
-  const cols = [...block.firstElementChild.children];
-  block.classList.add(`columns-${cols.length}-cols`);
 
-  // setup image columns
-  [...block.children].forEach((row) => {
-    [...row.children].forEach((col) => {
-      const pic = col.querySelector('picture');
-      if (pic) {
-        const picWrapper = pic.closest('div');
-        if (picWrapper && picWrapper.children.length === 1) {
-          // picture is only content in column
-          picWrapper.classList.add('columns-img-col');
-        }
+  const cards = block.querySelectorAll(':scope > div');
+
+  cards.forEach((card) => {
+
+    /* Convert button titles to headings */
+
+    const button = card.querySelector('.button-wrapper a');
+
+    if (button) {
+
+      const title = document.createElement('h6');
+      const link = document.createElement('a');
+
+      link.href = button.href;
+      link.textContent = button.textContent;
+
+      title.append(link);
+
+      button.closest('.button-wrapper').replaceWith(title);
+
+    }
+
+    /* Make entire card clickable */
+
+    const link =
+      card.querySelector('h6 a') ||
+      card.querySelector('.button-wrapper a');
+
+    if (!link) return;
+
+    const url = link.href;
+
+    card.addEventListener('click', () => {
+      window.location.href = url;
+    });
+
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+
+    card.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        window.location.href = url;
       }
     });
+
   });
+
 }
