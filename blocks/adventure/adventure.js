@@ -23,7 +23,6 @@ export default function decorate(block) {
   content.append(title, desc, link);
 
   /* rebuild */
-
   block.innerHTML = '';
   block.append(imageWrapper, content);
 
