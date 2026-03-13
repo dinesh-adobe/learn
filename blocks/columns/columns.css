@@ -1,4 +1,4 @@
-/* Section wrapper */
+/* SECTION WRAPPER */
 
 .columns-wrapper {
   max-width: 1200px;
@@ -6,7 +6,7 @@
   padding: 60px 20px;
 }
 
-/* Grid layout */
+/* GRID */
 
 .columns {
   display: grid;
@@ -14,7 +14,7 @@
   gap: 28px;
 }
 
-/* Card */
+/* CARD */
 
 .columns > div {
   display: flex;
@@ -22,7 +22,7 @@
   cursor: pointer;
 }
 
-/* Image */
+/* IMAGE */
 
 .columns picture img {
   width: 100%;
@@ -32,45 +32,46 @@
   transition: transform 0.35s ease;
 }
 
-/* Image hover */
+/* IMAGE HOVER */
 
 .columns > div:hover img {
   transform: scale(1.05);
 }
 
-/* Remove button styling */
+/* REMOVE BUTTON STYLE */
 
-.button.primary {
-  background: yellow;
-  border: yellow;
-  padding: 10px 20px;
+.button.primary,
+.button-wrapper {
+  all: unset;
 }
 
-/* Title */
+/* TITLE */
 
-.columns h6,
-.columns .button-wrapper {
-  margin: 0 0 10px;
+.columns h6 {
+  margin: 0 0 8px;
 }
 
-.columns h6 a,
-.columns .button-wrapper a {
+.columns h6 a {
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
   color: #111;
 }
 
-/* Description */
+/* DESCRIPTION */
 
 .columns > div > div:last-child p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.5;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Responsive */
+/* RESPONSIVE */
 
 @media (max-width: 1000px) {
 
@@ -87,14 +88,62 @@
   }
 
 }
-/* yellow button */
-.button.block p{
-  display:inline-block;
-  background:#ffe100;
-  padding:18px 38px;
-  font-weight:700;
-  text-transform:uppercase;
-  font-size:14px;
-  cursor:pointer;
-  color: #000;
+
+/* Ensure section width stays centered like WKND */
+
+.section,
+.columns-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Prevent grid from expanding beyond container */
+
+.columns {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Normalize image containers */
+
+.columns picture {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+/* Force images to stay inside cards */
+
+.columns picture img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Prevent long text stretching cards */
+
+.columns > div {
+  min-width: 0;
+}
+
+/* keep columns narrower than full page */
+
+.columns-wrapper {
+  max-width: 1100px;   /* smaller than page width */
+  margin: 0 auto;      /* center horizontally */
+}
+
+/* keep grid inside wrapper */
+
+.columns {
+  width: 100%;
+}
+
+/* optional: reduce image height slightly to match WKND proportion */
+
+.columns picture img {
+  height: 200px;
 }

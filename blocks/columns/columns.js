@@ -4,7 +4,7 @@ export default function decorate(block) {
 
   cards.forEach((card) => {
 
-    /* Convert button titles to headings */
+    /* convert button to heading */
 
     const button = card.querySelector('.button-wrapper a');
 
@@ -19,14 +19,11 @@ export default function decorate(block) {
       title.append(link);
 
       button.closest('.button-wrapper').replaceWith(title);
-
     }
 
-    /* Make entire card clickable */
+    /* make entire card clickable */
 
-    const link =
-      card.querySelector('h6 a') ||
-      card.querySelector('.button-wrapper a');
+    const link = card.querySelector('h6 a');
 
     if (!link) return;
 

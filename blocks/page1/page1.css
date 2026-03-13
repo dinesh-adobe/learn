@@ -82,6 +82,19 @@
   font-weight: 700;
   text-decoration: none;
   color: black;
+
+  /* make it box instead of pill */
+  border-radius: 0;
+
+  /* remove any inherited border */
+  border: none;
+
+  /* optional hover */
+  transition: background 0.2s ease;
+}
+
+.page1 .button-wrapper a:hover {
+  background: #ffcc00;
 }
 
 /* RESPONSIVE */

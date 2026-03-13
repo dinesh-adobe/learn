@@ -344,3 +344,25 @@ main .section.highlight {
 #this-is-h6 {
   color: brown;
 }
+
+/* All Trips yellow button */
+
+.columns-container .default-content-wrapper p a {
+  display: inline-block;
+  background: #ffe100;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 14px 28px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background 0.2s ease;
+}
+
+/* hover effect */
+
+.columns-container .default-content-wrapper p a:hover {
+  background: #ffd400;
+}
+

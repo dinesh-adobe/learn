@@ -1,0 +1,60 @@
+/* container */
+
+.tabs {
+  max-width: 1200px;
+  margin: 30px auto;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+/* remove table-like spacing */
+
+.tabs > div {
+  display: contents;
+}
+
+/* tab item */
+
+.tabs p {
+  margin: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* active tab */
+
+.tabs p.active {
+  background: #111;
+  color: #fff;
+  padding: 6px 12px;
+}
+
+/* hover */
+
+.tabs p:hover {
+  color: #000;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+
+  .tabs {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+}
+
+.cmp-title__text::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ffd400;
+  margin-top: 8px;
+}
