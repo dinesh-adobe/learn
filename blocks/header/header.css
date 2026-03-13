@@ -1,50 +1,48 @@
 /* ============================================
-   WKND Sticky Header — Shrink on Scroll
+   GLOBAL OVERRIDES (THE JAILBREAK)
+   Forces the header to break out of the EDS max-width limits
    ============================================ */
+header,
+header .header-wrapper,
+header .header.block[data-block-name="header"] {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
 
-/* ----- Base Header ----- */
-
+/* ============================================
+   STICKY HEADER BASE
+   ============================================ */
 header {
   position: relative;
-  width: 100%;
+  z-index: 100;
 }
 
-/* Reserve space for fixed header */
 header + main {
-  padding-top: 150px;
+  padding-top: 150px; /* Prevents content from jumping */
 }
-
-/* ----- Fixed Wrapper ----- */
 
 header .nav-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  background-color: #fff;
+  background-color: transparent;
   transition: box-shadow 0.3s ease;
 }
 
-header .nav-wrapper.scrolled {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+header .nav-wrapper.scrolled .nav-bottom-row {
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-
-/* ============================================
-   NAV LAYOUT
-   ============================================ */
 
 header nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 100%;
   margin: 0;
   padding: 0;
-  font-family: var(--body-font-family,'Helvetica Neue',Helvetica,Arial,sans-serif);
-}
-
-header nav p {
-  margin: 0;
-  line-height: 1;
+  font-family: var(--body-font-family, 'Helvetica Neue', Helvetica, Arial, sans-serif);
 }
 
 header nav a:any-link {
@@ -52,221 +50,247 @@ header nav a:any-link {
 }
 
 /* ============================================
-   ROW 1 — UTILITY BAR
+   TOP ROW (UTILITY BAR)
    ============================================ */
-
-header nav .nav-brand {
-  flex: 0 0 100%;
-  background: #333;
+header nav .nav-top-row {
+  width: 100%;
+  background: #222; /* WKND dark grey/black */
+  transition: transform 0.3s ease, height 0.3s ease;
 }
 
-header nav .nav-brand .default-content-wrapper {
+/* Hides the top row smoothly on scroll */
+header .nav-wrapper.scrolled .nav-top-row {
+  height: 0;
+  overflow: hidden;
+}
+
+header nav .nav-utility {
   max-width: 1264px;
   margin: 0 auto;
   padding: 8px 32px;
-
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+/* Formats the inner content of the utility authored block */
+header nav .nav-utility .default-content-wrapper {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 24px;
 }
 
-header nav .nav-brand a {
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-header nav .nav-brand a:hover {
-  color: #ffea00;
-}
-
-/* ============================================
-   ROW 2 — LOGO
-   ============================================ */
-
-header nav .nav-sections {
-  flex: 0 0 auto;
-
-  display: flex;
-  align-items: center;
-
-  height: 114px;
-  padding-left: 48px;
-
-  transition: height 0.3s ease, padding 0.3s ease;
-}
-
-header .nav-wrapper.scrolled nav .nav-sections {
-  height: 64px;
-  padding-left: 32px;
-}
-
-header nav .nav-sections img {
-  height: 55px;
-  width: auto;
-
-  transition: height 0.3s ease;
-}
-
-header .nav-wrapper.scrolled nav .nav-sections img {
-  height: 36px;
-}
-
-/* ============================================
-   NAV LINKS
-   ============================================ */
-
-header nav .nav-tools {
-  flex: 1 1 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  height: 114px;
-
-  transition: height 0.3s ease;
-}
-
-header .nav-wrapper.scrolled nav .nav-tools {
-  height: 64px;
-}
-
-header nav .nav-tools .default-content-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-header nav .nav-tools ul {
-  display: flex;
-  list-style: none;
+header nav .nav-utility p, 
+header nav .nav-utility ul {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
   padding: 0;
 }
 
-header nav .nav-tools ul > li > a {
-  color: #000;
-
+header nav .nav-utility a,
+header nav .nav-utility {
+  color: #fff;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
-
-  padding: 8px 20px;
 }
 
-header nav .nav-tools ul > li > a:hover {
-  color: #ffea00;
+header nav .nav-utility a:hover {
+  color: #ccc;
+}
+
+header nav .nav-utility img {
+  height: 14px;
+  width: auto;
+  display: block;
 }
 
 /* ============================================
-   SEARCH
+   BOTTOM ROW (MAIN NAV)
    ============================================ */
-
-header nav .section:nth-child(5) {
-  flex: 0 0 auto;
-
-  display: flex;
-  align-items: center;
-
-  height: 114px;
-  padding: 0 48px 0 16px;
-
-  transition: height 0.3s ease, padding 0.3s ease;
+header nav .nav-bottom-row {
+  width: 100%;
+  background: #fff;
 }
 
-header .nav-wrapper.scrolled nav .section:nth-child(5) {
+header nav .nav-bottom-row-content {
+  max-width: 1264px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 90px;
+  transition: height 0.3s ease;
+}
+
+header .nav-wrapper.scrolled .nav-bottom-row-content {
   height: 64px;
-  padding-right: 32px;
 }
 
-header nav .section:nth-child(5) a {
+/* --- LOGO --- */
+header nav .nav-brand {
+  flex: 0 0 auto;
+}
+
+header nav .nav-brand img {
+  height: 50px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease;
+}
+
+header .nav-wrapper.scrolled .nav-brand img {
+  height: 36px;
+}
+
+/* --- NAV LINKS (FIXED ALIGNMENT) --- */
+header nav .nav-sections {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+/* Targets the wrapper holding the multiple ULs and forces them into a row */
+header nav .nav-sections .default-content-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 32px; /* Spacing between multiple lists or paragraphs */
+  margin: 0;
+  padding: 0;
+}
+
+/* This adds the gap between the actual list items so they don't squish */
+header nav .nav-sections .default-content-wrapper ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 32px; 
+}
+
+/* Catch-all in case EDS authored FAQS and ABOUT US as paragraphs */
+header nav .nav-sections .default-content-wrapper p {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  gap: 32px;
+}
+
+header nav .nav-sections li {
+  display: block;
+  white-space: nowrap;
+}
+
+header nav .nav-sections a {
+  color: #202020;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+header nav .nav-sections a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* --- SEARCH --- */
+header nav .nav-tools {
+  flex: 0 0 auto;
+}
+
+header nav .nav-tools p,
+header nav .nav-tools .default-content-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+header nav .nav-tools a {
   display: flex;
   align-items: center;
-  gap: 10px;
-
-  background: #f2f2f2;
-
-  border-radius: 24px;
-
-  padding: 10px 24px;
-
-  color: #999;
+  gap: 12px;
+  background: #f4f4f4;
+  padding: 12px 24px;
+  color: #888;
   font-size: 14px;
-
-  min-width: 160px;
+  text-transform: uppercase;
+  min-width: 180px;
+  transition: background 0.2s ease;
+  border-radius: 0; /* Ensures the exact rectangular look */
 }
 
-header nav .section:nth-child(5) a::after {
+header nav .nav-tools a::after {
   content: "SEARCH";
   letter-spacing: 1px;
 }
 
-header nav .section:nth-child(5) a:hover {
-  background: #e8e8e8;
+header nav .nav-tools a:hover {
+  background: #e6e6e6;
 }
 
-header nav .section:nth-child(5) .icon-search img {
+header nav .nav-tools img,
+header nav .nav-tools .icon-search img {
   width: 18px;
   height: 18px;
-  filter: brightness(0) saturate(100%) invert(50%);
+  filter: brightness(0) saturate(100%);
 }
 
 /* ============================================
-   HAMBURGER
+   MOBILE STYLES & HAMBURGER
    ============================================ */
-
 header nav .nav-hamburger {
   display: none;
 }
 
-/* ============================================
-   MOBILE
-   ============================================ */
-
-@media (width < 900px) {
-
+@media (max-width: 900px) {
   header + main {
     padding-top: 92px;
   }
 
-  header nav .nav-brand .default-content-wrapper {
-    padding: 6px 16px;
+  header nav .nav-bottom-row-content,
+  header .nav-wrapper.scrolled .nav-bottom-row-content {
+    height: 60px;
+    padding: 0 16px;
   }
 
-  header nav .nav-brand a {
-    font-size: 11px;
+  header nav .nav-brand img,
+  header .nav-wrapper.scrolled .nav-brand img {
+    height: 32px;
   }
 
-  /* hamburger */
-
+  /* Hamburger Setup */
   header nav .nav-hamburger {
     display: flex;
     align-items: center;
-    padding-left: 16px;
-    height: 56px;
+    flex: 0 0 auto;
+    padding-right: 20px;
   }
 
   header nav .nav-hamburger button {
     border: none;
     background: none;
     cursor: pointer;
+    padding: 0;
   }
 
   header nav .nav-hamburger-icon,
   header nav .nav-hamburger-icon::before,
   header nav .nav-hamburger-icon::after {
-
     display: block;
-
-    width: 20px;
+    width: 22px;
     height: 2px;
-
-    background: currentColor;
-
+    background: #000;
     position: relative;
   }
 
@@ -276,97 +300,54 @@ header nav .nav-hamburger {
     position: absolute;
   }
 
-  header nav .nav-hamburger-icon::before {
-    top: -6px;
+  header nav .nav-hamburger-icon::before { top: -7px; }
+  header nav .nav-hamburger-icon::after { top: 7px; }
+
+  /* Hide Desktop Elements on Mobile */
+  header nav .nav-utility,
+  header nav .nav-tools a::after {
+    display: none;
   }
 
-  header nav .nav-hamburger-icon::after {
-    top: 6px;
-  }
-
-  /* logo */
-
-  header nav .nav-sections {
-    height: 56px;
-    padding-left: 16px;
-  }
-
-  header nav .nav-sections img {
-    height: 28px;
-  }
-
-  /* search */
-
-  header nav .section:nth-child(5) {
-    height: 56px;
-    padding-right: 16px;
-  }
-
-  header nav .section:nth-child(5) a {
-    background: none;
+  header nav .nav-tools a {
+    background: transparent;
     padding: 0;
     min-width: unset;
   }
 
-  header nav .section:nth-child(5) a::after {
-    display: none;
+  /* Expandable Mobile Menu */
+  header nav .nav-sections {
+    display: none; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 0 24px 24px 24px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 99;
   }
 
-  header nav .section:nth-child(5) .icon-search img {
-    width: 20px;
-    height: 20px;
-    filter: brightness(0);
+  header nav[aria-expanded="true"] .nav-sections {
+    display: block;
   }
 
-  /* mobile nav menu */
+  header nav .nav-sections .default-content-wrapper {
+    flex-direction: column !important;
+    align-items: flex-start;
+    gap: 0;
+  }
 
-  header nav .nav-tools {
-    display: none;
+  header nav .nav-sections ul,
+  header nav .nav-sections ul > li,
+  header nav .nav-sections p {
     width: 100%;
   }
 
-  header nav[aria-expanded="true"] .nav-tools {
+  header nav .nav-sections a {
     display: block;
-  }
-
-  header nav .nav-tools ul {
-    flex-direction: column;
-    padding: 16px;
-  }
-
-  header nav .nav-tools ul > li > a {
-    display: block;
-    padding: 12px 0;
+    padding: 16px 0;
     font-size: 16px;
     border-bottom: 1px solid #eee;
   }
-
-}
-
-/* ============================================
-   HEADER CONTENT CONTAINER FIX
-   ============================================ */
-
-header nav .nav-sections .default-content-wrapper,
-header nav .nav-tools .default-content-wrapper,
-header nav .section:nth-child(5) .default-content-wrapper {
-  max-width: 1264px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/* ensure logo stays left */
-header nav .nav-sections {
-  flex: 0 0 auto;
-}
-
-/* align nav + search to container */
-header nav .nav-tools,
-header nav .section:nth-child(5) {
-  justify-content: flex-end;
-}
-
-header nav {
-  max-width: 1264px;
-  margin: 0 auto;
 }

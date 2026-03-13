@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   const container = block.querySelector(':scope > div > div');
 
   const h2 = container.querySelector('h2');
@@ -14,5 +13,4 @@ export default function decorate(block) {
   card.appendChild(paragraph);
 
   block.appendChild(card);
-
 }

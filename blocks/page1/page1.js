@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   const row = block.querySelector(':scope > div');
   const content = row.children[1];
 
@@ -8,5 +7,4 @@ export default function decorate(block) {
   label.textContent = 'Featured Article';
 
   content.prepend(label);
-
 }

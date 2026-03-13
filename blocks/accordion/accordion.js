@@ -1,9 +1,7 @@
 export default function decorate(block) {
-
   const rows = [...block.querySelectorAll(':scope > div')];
 
   rows.forEach((row, index) => {
-
     const label = row.children[0];
     const body = row.children[1];
 
@@ -39,6 +37,5 @@ export default function decorate(block) {
         });
       }
     });
-
   });
 }

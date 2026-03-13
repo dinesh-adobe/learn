@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   const rows = [...block.children];
 
   const header = rows[0];
@@ -21,7 +20,6 @@ export default function decorate(block) {
   cardContainer.className = 'member-cards';
 
   textCols.forEach((text, i) => {
-
     const image = imageCols[i];
 
     const card = document.createElement('div');
@@ -31,20 +29,18 @@ export default function decorate(block) {
     lock.className = 'member-lock';
     lock.textContent = '🔒';
 
-    const readMore = text.querySelector("p:last-child");
-    if (readMore) readMore.className = "member-read";
+    const readMore = text.querySelector('p:last-child');
+    if (readMore) readMore.className = 'member-read';
 
     card.append(lock);
     card.append(text);
     card.append(image);
 
     cardContainer.append(card);
-
   });
 
   textRow.remove();
   imageRow.remove();
 
   block.append(cardContainer);
-
 }

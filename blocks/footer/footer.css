@@ -22,7 +22,7 @@ footer .columns.block > div {
   flex-direction: row;
   align-items: center;
   justify-content: space-between; 
-  margin-bottom: 60px; 
+  margin-bottom: 10px; 
   width: 100%;
   gap: 40px; 
 }

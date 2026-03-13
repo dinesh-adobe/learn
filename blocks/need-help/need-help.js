@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   const container = document.createElement('div');
   container.className = 'need-help-content';
 
@@ -8,5 +7,4 @@ export default function decorate(block) {
   }
 
   block.append(container);
-
 }

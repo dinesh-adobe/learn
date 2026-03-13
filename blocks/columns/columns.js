@@ -1,15 +1,12 @@
 export default function decorate(block) {
-
   const cards = block.querySelectorAll(':scope > div');
 
   cards.forEach((card) => {
-
     /* convert button to heading */
 
     const button = card.querySelector('.button-wrapper a');
 
     if (button) {
-
       const title = document.createElement('h6');
       const link = document.createElement('a');
 
@@ -41,7 +38,5 @@ export default function decorate(block) {
         window.location.href = url;
       }
     });
-
   });
-
 }

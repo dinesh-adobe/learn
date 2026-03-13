@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   const row = block.querySelector(':scope > div');
   const cols = [...row.children];
 
@@ -25,5 +24,4 @@ export default function decorate(block) {
   /* rebuild */
   block.innerHTML = '';
   block.append(imageWrapper, content);
-
 }

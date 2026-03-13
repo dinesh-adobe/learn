@@ -1,5 +1,4 @@
 export default function decorate(block) {
-
   const row = block.querySelector(':scope > div');
 
   if (!row) return;
@@ -43,5 +42,4 @@ export default function decorate(block) {
 
   row.innerHTML = '';
   row.append(imageCol, contentCol);
-
 }
