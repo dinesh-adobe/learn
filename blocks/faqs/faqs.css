@@ -1,0 +1,54 @@
+.faqs {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* wrapper */
+
+.faq-wrapper {
+  max-width: 850px;
+}
+
+/* title */
+
+.faq-wrapper h1 {
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* yellow underline */
+
+.faq-wrapper h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffd400;
+  margin-top: 10px;
+}
+
+/* image */
+
+.faq-wrapper picture {
+  display: block;
+  margin: 30px 0;
+}
+
+.faq-wrapper picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* text */
+
+.faq-wrapper p,
+.faq-wrapper h2 {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}

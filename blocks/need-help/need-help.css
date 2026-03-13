@@ -1,0 +1,51 @@
+/* ===== NEED HELP BLOCK ===== */
+
+.need-help {
+  max-width: 280px;
+  position: relative;
+  bottom: 200px;
+}
+
+/* heading */
+
+.need-help h3 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #111;
+}
+
+/* text */
+
+.need-help p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* links */
+
+.need-help a {
+  color: #0072ff;
+  text-decoration: none;
+}
+
+.need-help a:hover {
+  text-decoration: underline;
+}
+
+/* spacing */
+
+.need-help p br {
+  margin-bottom: 10px;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .need-help {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+}

@@ -147,3 +147,116 @@
 .columns picture img {
   height: 200px;
 }
+
+/* ===== WKND FAQ LAYOUT ===== */
+
+.columns.faqs {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* create two column layout */
+
+.columns.faqs > div {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 70px;
+  align-items: start;
+}
+
+/* left column */
+
+.columns.faqs > div > div:first-child {
+  width: 100%;
+}
+
+/* FAQ title */
+
+.columns.faqs h1 {
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* yellow underline */
+
+.columns.faqs h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ffd400;
+  margin-top: 10px;
+}
+
+/* image styling */
+
+.columns.faqs picture {
+  display: block;
+  margin: 30px 0;
+}
+
+.columns.faqs picture img {
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* description text */
+
+.columns.faqs h2,
+.columns.faqs p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  max-width: 720px;
+}
+
+/* right column */
+
+.columns.faqs > div > div:last-child {
+  padding-top: 120px;
+}
+
+/* help title */
+
+.columns.faqs h3 {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* help text */
+
+.columns.faqs > div > div:last-child p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* links */
+
+.columns.faqs a {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+.columns.faqs a:hover {
+  text-decoration: underline;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+
+  .columns.faqs > div {
+    grid-template-columns: 1fr;
+  }
+
+  .columns.faqs > div > div:last-child {
+    padding-top: 30px;
+  }
+
+}
