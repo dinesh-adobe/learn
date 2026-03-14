@@ -12,10 +12,10 @@ export default function decorate(block) {
     if (categoryName === 'ALL' || categoryName === '') return;
 
     const cards = [];
-    
+
     // Create an array of data columns, skipping the first category column
     const dataCols = cols.slice(1);
-    
+
     dataCols.forEach((col) => {
       const picture = col.querySelector('picture');
       const img = col.querySelector('img');
@@ -24,7 +24,6 @@ export default function decorate(block) {
 
       // Replaces 'continue' with an explicit condition block
       if (picture || img) {
-        
         // Replaces the nested ternary expression for the title
         let cardTitle = '';
         if (link) {

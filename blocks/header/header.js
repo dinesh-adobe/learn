@@ -1,6 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
- 
+
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
 function openOnKeydown(e) {
@@ -13,11 +13,11 @@ function openOnKeydown(e) {
     focused.setAttribute('aria-expanded', dropExpanded ? 'false' : 'true');
   }
 }
- 
+
 function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
- 
+
 /**
  * Toggles all nav sections
  * @param {Element} sections The container element
@@ -63,7 +63,7 @@ function closeOnFocusLost(e) {
     }
   }
 }
- 
+
 /**
  * Toggles the entire nav
  * @param {Element} nav The container element
@@ -79,7 +79,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   if (button) {
     button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   }
- 
+
   // enable nav dropdown keyboard accessibility
   if (navSections) {
     const navDrops = navSections.querySelectorAll('.nav-drop');
@@ -97,7 +97,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
       });
     }
   }
- 
+
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
     window.addEventListener('keydown', closeOnEscape);
@@ -107,7 +107,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     nav.removeEventListener('focusout', closeOnFocusLost);
   }
 }
- 
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -117,7 +117,7 @@ export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
- 
+
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
@@ -150,7 +150,7 @@ export default async function decorate(block) {
       });
     });
   }
- 
+
   // highlight current nav item like WKND
   const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
   if (navSections) {
@@ -166,7 +166,7 @@ export default async function decorate(block) {
       }
     });
   }
- 
+
   // shrink header on scroll like WKND
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
@@ -177,7 +177,7 @@ export default async function decorate(block) {
       header.classList.remove('scrolled');
     }
   });
- 
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
@@ -187,14 +187,14 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
- 
+
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
- 
+
   // inject styles once for top bar and sign in modal
   if (!document.getElementById('wknd-header-dialog-styles')) {
     const style = document.createElement('style');
@@ -408,7 +408,7 @@ export default async function decorate(block) {
     `;
     document.head.append(style);
   }
- 
+
   // create real top bar
   const topBar = document.createElement('div');
   topBar.className = 'wknd-topbar-real';
@@ -416,7 +416,7 @@ export default async function decorate(block) {
     <button type="button" class="wknd-signin-trigger wknd-white-btn">SIGN IN</button>
     <a href="/home" class="wknd-lang-link wknd-white-btn">HOME</a>
   `;
- 
+
   // create sign in modal
   const signInOverlay = document.createElement('div');
   signInOverlay.className = 'wknd-signin-overlay';
