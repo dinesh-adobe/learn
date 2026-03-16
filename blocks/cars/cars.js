@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Convert rating number to stars */
     const ratingElement = card.querySelector('p strong');
 
+    // eslint-disable-next-line no-restricted-globals
     if (ratingElement && !isNaN(ratingElement.textContent)) {
       const rating = parseFloat(ratingElement.textContent);
       const stars = '★'.repeat(Math.round(rating));

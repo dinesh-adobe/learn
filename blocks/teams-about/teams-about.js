@@ -9,6 +9,7 @@ export default function decorate(block) {
   const wrapper = document.createElement('div');
   wrapper.className = 'team-wrapper';
 
+  // eslint-disable-next-line no-plusplus
   for (let i = 0; i < images.length; i++) {
     const card = document.createElement('div');
     card.className = 'team-card';
