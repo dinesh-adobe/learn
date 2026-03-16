@@ -414,7 +414,7 @@ export default async function decorate(block) {
   topBar.className = 'wknd-topbar-real';
   topBar.innerHTML = `
     <button type="button" class="wknd-signin-trigger wknd-white-btn">SIGN IN</button>
-    <a href="/home" class="wknd-lang-link wknd-white-btn">HOME</a>
+    <a href="https://main--learn--dinesh-adobe.aem.page/landing-page?nocache=1773302557710" class="wknd-lang-link wknd-white-btn">HOME</a>
   `;
 
   // create sign in modal
