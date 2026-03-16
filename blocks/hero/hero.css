@@ -1,12 +1,14 @@
-/* HERO CONTAINER */
+/* =====================================================
+   HERO BLOCK — Mobile-first responsive
+   ===================================================== */
 
+/* HERO CONTAINER */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
 }
 
 /* HERO SECTION */
-
 .hero {
   position: relative;
   max-width: 1200px;
@@ -14,7 +16,6 @@
 }
 
 /* IMAGE */
-
 .hero picture {
   display: block;
   width: 100%;
@@ -28,27 +29,22 @@
 }
 
 /* REMOVE PADDING FROM IMAGE WRAPPER */
-
 .hero p:has(picture) {
   margin: 0;
 }
 
 /* HERO OVERLAY CARD */
-
 .hero .hero-content {
   position: absolute;
   bottom: -40px;
   left: 60px;
-
   background: #fff;
   padding: 40px 50px;
   max-width: 520px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* PAGE TITLE */
-
 .hero h1 {
   font-family: Georgia, serif;
   font-size: 42px;
@@ -56,7 +52,6 @@
 }
 
 /* HERO TITLE */
-
 .hero h2 {
   font-family: Georgia, serif;
   font-size: 28px;
@@ -64,19 +59,89 @@
 }
 
 /* DESCRIPTION */
-
 .hero .hero-content p {
   font-size: 15px;
   line-height: 1.6;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-
-  .hero .hero-content {
-    position: static;
-    margin-top: 20px;
+/* =====================================================
+   RESPONSIVE — Tablet (600px – 900px)
+   ===================================================== */
+@media (width >= 600px) and (width < 900px) {
+  .hero {
+    margin: 40px auto;
   }
 
+  .hero picture img {
+    height: 320px;
+  }
+
+  .hero .hero-content {
+    position: absolute;
+    bottom: -30px;
+    left: 32px;
+    padding: 28px 32px;
+    max-width: 420px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .hero .hero-content p {
+    font-size: 14px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE — Mobile (< 600px)
+   ===================================================== */
+@media (width < 600px) {
+  .hero {
+    margin: 0 0 40px 0;   /* no side margin — full bleed image */
+  }
+
+  .hero picture img {
+    height: 220px;         /* shorter image on mobile */
+  }
+
+  /* Card drops out of overlay — sits below image */
+  .hero .hero-content {
+    position: static;
+    bottom: auto;
+    left: auto;
+    max-width: 100%;
+    padding: 24px 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin: 0;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .hero .hero-content p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero .hero-content {
+    transition: none;
+  }
 }
