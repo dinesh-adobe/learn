@@ -1,0 +1,128 @@
+/* =====================================================
+   share-story block — WKND replica
+   Matches: stacked cards, left grey border,
+   yellow bg on hover, "SHARE THIS STORY" heading
+   ===================================================== */
+
+/* --- Wrapper --------------------------------------- */
+.share-story-wrapper {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  bottom: 300px;
+}
+
+/* --- "SHARE THIS STORY" heading -------------------- */
+.share-story-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0 0 24px 0;
+  padding: 0;
+  font-family: var(--body-font-family, adobe-clean, sans-serif);
+}
+
+/* --- Block container ------------------------------- */
+.share-story.block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* --- Story card (each EDS row) --------------------- */
+.share-story.block .story-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 20px 20px 20px;
+  background-color: #fff;
+  border-left: 3px solid #d0d0d0;
+  border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-left-color 0.15s ease;
+}
+
+.share-story.block .story-card:last-child {
+  border-bottom: none;
+}
+
+/* Yellow ONLY on hover */
+.share-story.block .story-card:hover {
+  background-color: #ffed00;
+  border-left-color: #000;
+}
+
+/* --- Card title ------------------------------------ */
+.share-story.block .story-card-title {
+  font-size: 0.8125rem;       /* 13px */
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family, adobe-clean, sans-serif);
+}
+
+/* --- Card date ------------------------------------- */
+.share-story.block .story-card-date {
+  font-size: 0.6875rem;       /* 11px */
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #767676;
+  margin: 0;
+  padding: 0;
+  font-family: var(--body-font-family, adobe-clean, sans-serif);
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet: float right alongside article */
+@media (width >= 600px) and (width < 900px) {
+  .share-story-wrapper {
+    width: 38%;
+    float: right;
+    margin-left: 32px;
+  }
+
+  .share-story.block .story-card {
+    border-bottom: none;
+    border-top: 1px solid #ebebeb;
+    padding: 16px 0 16px 16px;
+  }
+
+  .share-story.block .story-card:first-child {
+    border-top: none;
+  }
+}
+
+/* Desktop: fixed width right sidebar */
+@media (width >= 900px) {
+  .share-story-wrapper {
+    width: 260px;
+    min-width: 220px;
+    position: sticky;
+    top: 24px;
+    align-self: flex-start;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .share-story.block .story-card {
+    transition: none;
+  }
+}

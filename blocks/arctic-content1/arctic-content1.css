@@ -1,0 +1,211 @@
+/* =====================================================
+   arctic-content1 block — WKND
+   Proper paragraph, image & heading alignment
+   ===================================================== */
+
+.arctic-content1.block {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--body-font-family, adobe-clean, serif);
+}
+
+/* --- Headings -------------------------------------- */
+.arctic-content1.block h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000;
+  margin: 48px 0 16px 0;
+  padding: 0;
+  letter-spacing: -0.01em;
+}
+
+.arctic-content1.block h4 {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+.arctic-content1.block h4 strong {
+  font-weight: 700;
+}
+
+/* --- Body paragraphs ------------------------------- */
+.arctic-content1.block p {
+  font-size: 1.0625rem;       /* 17px */
+  line-height: 1.85;
+  color: #2d2d2d;
+  margin: 0 0 24px 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* --- Images inside <p> tags ----------------------- */
+.arctic-content1.block p picture,
+.arctic-content1.block p img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrap the <p> that contains a picture — full bleed */
+.arctic-content1.block p:has(picture) {
+  margin: 32px 0;
+  line-height: 0;       /* removes inline gap below img */
+  font-size: 0;         /* kills any whitespace text nodes */
+}
+
+.arctic-content1.block p:has(picture) img {
+  border-radius: 2px;
+}
+
+/* --- First paragraph after h4 (byline intro) ------- */
+.arctic-content1.block h4 + p {
+  margin-top: 0;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet */
+@media (width >= 600px) and (width < 900px) {
+  .arctic-content1.block {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+
+  .arctic-content1.block h2 {
+    font-size: 1.5rem;
+  }
+
+  .arctic-content1.block p {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (width < 600px) {
+  .arctic-content1.block {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .arctic-content1.block h2 {
+    font-size: 1.25rem;
+    margin: 32px 0 12px 0;
+  }
+
+  .arctic-content1.block p {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+
+  .arctic-content1.block p:has(picture) {
+    margin: 20px 0;
+  }
+}
+
+
+/* --- Figure (image wrapper created by JS) ---------- */
+.arctic-content1.block .article-image {
+  display: block;
+  width: 100%;
+  margin: 32px 0;
+  padding: 0;
+}
+
+.arctic-content1.block .article-image picture {
+  display: block;
+  width: 100%;
+}
+
+.arctic-content1.block .article-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+@media (width < 600px) {
+  .arctic-content1.block .article-image {
+    margin: 20px 0;
+  }
+}
+
+
+/* =====================================================
+   SECTION LAYOUT — article left, share-story right
+   Targets the shared container section
+   ===================================================== */
+
+.arctic-content1-container.share-story-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* Article — takes all remaining space on the left */
+.arctic-content1-container.share-story-container .arctic-content1-wrapper {
+  flex: 1 1 auto;
+  min-width: 0;       /* prevents flex overflow with long text */
+}
+
+/* Share story — fixed width column on the right */
+.arctic-content1-container.share-story-container .share-story-wrapper {
+  flex: 0 0 260px;
+  width: 260px;
+  position: sticky;
+  top: 24px;
+  align-self: flex-start;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet: narrower sidebar */
+@media (width >= 600px) and (width < 900px) {
+  .arctic-content1-container.share-story-container {
+    gap: 32px;
+    padding: 0 20px;
+  }
+
+  .arctic-content1-container.share-story-container .share-story-wrapper {
+    flex: 0 0 200px;
+    width: 200px;
+    position: sticky;
+    top: 16px;
+  }
+}
+
+/* Mobile: stack vertically — article on top, share-story below */
+@media (width < 600px) {
+  .arctic-content1-container.share-story-container {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 16px;
+  }
+
+  .arctic-content1-container.share-story-container .arctic-content1-wrapper,
+  .arctic-content1-container.share-story-container .share-story-wrapper {
+    width: 100%;
+    flex: 0 0 auto;
+    position: static;
+  }
+}
