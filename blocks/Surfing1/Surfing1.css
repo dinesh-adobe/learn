@@ -1,0 +1,164 @@
+/* =====================================================
+   surfing1 — WKND Carousel
+   Full-width image slider with dots + arrows
+   Matches adventure sub-page carousel exactly
+   ===================================================== */
+
+/* --- Block wrapper ---------------------------------- */
+.surfing1-wrapper {
+  max-width: unset;
+  padding: 0;
+  margin: 0;
+}
+
+.surfing1.block {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: #000;
+  outline: none;
+}
+
+/* --- Track wrapper ---------------------------------- */
+.surfing1.block .carousel-track-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --- Track ------------------------------------------ */
+.surfing1.block .carousel-track {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Slides ----------------------------------------- */
+.surfing1.block .carousel-slide {
+  display: none;
+  width: 100%;
+}
+
+.surfing1.block .carousel-slide.active {
+  display: block;
+}
+
+/* --- Images ----------------------------------------- */
+.surfing1.block .carousel-slide picture {
+  display: block;
+  width: 100%;
+}
+
+.surfing1.block .carousel-slide picture img {
+  display: block;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- Controls bar: dots LEFT, arrows RIGHT ---------- */
+.surfing1.block .carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #fff;
+}
+
+/* --- Dots ------------------------------------------- */
+.surfing1.block .carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Center dots horizontally in the bar */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.surfing1.block .carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.surfing1.block .carousel-dot.active {
+  background: #000;
+}
+
+.surfing1.block .carousel-dot:hover {
+  background: #555;
+}
+
+/* --- Arrows ----------------------------------------- */
+.surfing1.block .carousel-arrows {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.surfing1.block .carousel-arrow {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: opacity 0.15s ease;
+}
+
+.surfing1.block .carousel-arrow:hover {
+  opacity: 0.5;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet */
+@media (width >= 600px) and (width < 900px) {
+  .surfing1.block .carousel-slide picture img {
+    height: 360px;
+  }
+
+  .surfing1.block .carousel-controls {
+    padding: 12px 20px;
+  }
+}
+
+/* Mobile */
+@media (width < 600px) {
+  .surfing1.block .carousel-slide picture img {
+    height: 220px;
+  }
+
+  .surfing1.block .carousel-controls {
+    padding: 10px 16px;
+  }
+
+  .surfing1.block .carousel-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+}
+
+/* Reduced motion — disable fade */
+@media (prefers-reduced-motion: reduce) {
+  .surfing1.block .carousel-dot {
+    transition: none;
+  }
+}
