@@ -1,5 +1,4 @@
 export default function decorate(block) {
-  // Collect all slides
   const slides = [...block.children];
   const total = slides.length;
   if (total === 0) return;
@@ -17,7 +16,6 @@ export default function decorate(block) {
     slide.classList.add('carousel-slide');
     if (i === 0) slide.classList.add('active');
 
-    // Move picture into slide
     const picture = row.querySelector('picture');
     if (picture) slide.appendChild(picture);
 
@@ -36,7 +34,6 @@ export default function decorate(block) {
     dot.classList.add('carousel-dot');
     dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
     if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goTo(i));
     dotsWrapper.appendChild(dot);
   }
 
@@ -47,17 +44,17 @@ export default function decorate(block) {
   const prevBtn = document.createElement('button');
   prevBtn.classList.add('carousel-arrow', 'carousel-prev');
   prevBtn.setAttribute('aria-label', 'Previous slide');
-  prevBtn.innerHTML = '&#8592;'; // ←
+  prevBtn.innerHTML = '&#8592;';
 
   const nextBtn = document.createElement('button');
   nextBtn.classList.add('carousel-arrow', 'carousel-next');
   nextBtn.setAttribute('aria-label', 'Next slide');
-  nextBtn.innerHTML = '&#8594;'; // →
+  nextBtn.innerHTML = '&#8594;';
 
   arrowsWrapper.appendChild(prevBtn);
   arrowsWrapper.appendChild(nextBtn);
 
-  // --- Controls bar (dots left, arrows right) ---
+  // --- Controls bar ---
   const controls = document.createElement('div');
   controls.classList.add('carousel-controls');
   controls.appendChild(dotsWrapper);
@@ -68,6 +65,7 @@ export default function decorate(block) {
   let current = 0;
   let autoplayTimer = null;
 
+  // --- Functions declared before use ---
   function goTo(index) {
     const allSlides = track.querySelectorAll('.carousel-slide');
     const allDots = dotsWrapper.querySelectorAll('.carousel-dot');
@@ -84,10 +82,6 @@ export default function decorate(block) {
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
-  prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
-
-  // --- Autoplay ---
   function startAutoplay() {
     autoplayTimer = setInterval(next, 4000);
   }
@@ -97,9 +91,19 @@ export default function decorate(block) {
     startAutoplay();
   }
 
+  // --- Dot click handlers (added after goTo is defined) ---
+  dotsWrapper.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+  });
+
+  // --- Arrow handlers ---
+  nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+  prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
+
+  // --- Autoplay ---
   startAutoplay();
 
-  // --- Touch / swipe support ---
+  // --- Touch / swipe ---
   let touchStartX = 0;
   carousel.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
@@ -117,6 +121,6 @@ export default function decorate(block) {
   block.setAttribute('tabindex', '0');
   block.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
-    if (e.key === 'ArrowLeft')  { prev(); resetAutoplay(); }
+    if (e.key === 'ArrowLeft') { prev(); resetAutoplay(); }
   });
 }

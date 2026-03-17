@@ -13,7 +13,7 @@ export default function decorate(block) {
     const inner = row.querySelector('div');
     const paras = inner ? [...inner.querySelectorAll('p')] : [];
     const title = paras[0] ? paras[0].textContent.trim() : '';
-    const date  = paras[1] ? paras[1].textContent.trim() : '';
+    const date = paras[1] ? paras[1].textContent.trim() : '';
 
     row.classList.add('story-card');
     row.innerHTML = '';
